@@ -5,23 +5,40 @@ class Stack {
   }
 
   canPush() {
-    // ... your code goes here
+    if (this.stackControl.length === this.MAX_SIZE) {
+      return false;
+    } else if (this.stackControl.length === 0){
+      return true;
+    }
   }
 
   isEmpty() {
-    // ... your code goes here
+    if (this.stackControl.length === 0) {
+      return true;
+    } else if (this.stackControl.length > 0) {
+      return false;
+    }
   }
 
   push(item) {
-    // ... your code goes here
+    if (this.canPush()) {
+      this.stackControl.push(item);
+    } else {
+      throw new Error("STACK_OVERFLOW");
+    }
+    return this.stackControl;
   }
 
   pop() {
-    // ... your code goes here
+    if (!this.isEmpty) {
+      return this.stackControl.pop();
+    } else {
+      throw new Error("STACK_UNDERFLOW");
+    }
   }
 
   display() {
-    // ... your code goes here
+    return this.stackControl;
   }  
 }
 
